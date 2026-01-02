@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { models } from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
@@ -50,10 +50,6 @@ const UserSchema = new mongoose.Schema(
       enum: ["user", "faculty"],
       default: "user",
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
     lastLogin: {
       type: Date,
       default: Date.now,
@@ -61,7 +57,7 @@ const UserSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
-)
+  }
+);
 
-export default mongoose.models.User || mongoose.model("User", UserSchema)
+export default models.User || mongoose.model("User", UserSchema);
